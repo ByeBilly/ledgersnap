@@ -1,0 +1,165 @@
+%PDF-1.4
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+6 0 obj
+<< /Length 2562 >>
+stream
+BT
+/F1 11 Tf
+72 720 Td
+(# LedgerSnap Final Report) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(Date: 2026-02-07) Tj
+0 -14 Td
+(Build: Session Completion) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(## Executive Summary) Tj
+0 -14 Td
+(LedgerSnap is now fully wired from capture to ledger: authentication, tenant provisioning,) Tj
+0 -14 Td
+(background sync, Google Drive/Sheets integration, and manager administration are) Tj
+0 -14 Td
+(functional end-to-end. The frontend uses real backend endpoints, the backend processes) Tj
+0 -14 Td
+(queued submissions in the background, and staff onboarding is implemented with secure) Tj
+0 -14 Td
+(magic links. This report documents what was completed, how it works, and what remains) Tj
+0 -14 Td
+(optional for future iterations.) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(## Scope Completed) Tj
+0 -14 Td
+(- Magic-link authentication with JWT issuance and enforcement) Tj
+0 -14 Td
+(- SMTP sending with branded HTML email template) Tj
+0 -14 Td
+(- Tenant provisioning with Drive folder + Sheets ledger setup) Tj
+0 -14 Td
+(- Background queue worker to process receipts and statements) Tj
+0 -14 Td
+(- Idempotency and retry logic for safe, reliable sync) Tj
+0 -14 Td
+(- Frontend wired to real backend APIs) Tj
+0 -14 Td
+(- Manager dashboard: staff invite, list, enable/disable) Tj
+0 -14 Td
+(- Secure secrets handling and rate limiting) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(## Key Backend Features) Tj
+0 -14 Td
+(- `/auth/request-link` issues magic links) Tj
+0 -14 Td
+(- `/auth/verify` validates token and returns JWT + user profile) Tj
+0 -14 Td
+(- `/submissions` queues receipt/statement payloads) Tj
+0 -14 Td
+(- Queue worker appends to Sheets and uploads to Drive) Tj
+0 -14 Td
+(- `/tenants/provision` provisions a tenant and initial manager) Tj
+0 -14 Td
+(- `/tenants/invite` creates users and sends invites) Tj
+0 -14 Td
+(- `/tenants/users` lists staff for a tenant) Tj
+0 -14 Td
+(- `/tenants/users/:userId/status` enables/disables users) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(## Key Frontend Features) Tj
+0 -14 Td
+(- Live authentication flow with session storage) Tj
+0 -14 Td
+(- Real outbox sync to backend) Tj
+0 -14 Td
+(- History view refreshed from backend) Tj
+0 -14 Td
+(- Onboarding now provisions tenants for real) Tj
+0 -14 Td
+(- Manager tab includes staff directory and invites) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(## Security and Reliability) Tj
+0 -14 Td
+(- JWT-protected routes) Tj
+0 -14 Td
+(- Auth rate limiting) Tj
+0 -14 Td
+(- Idempotency keys for submissions) Tj
+0 -14 Td
+(- Background queue with retries + backoff) Tj
+0 -14 Td
+(- Service account secrets removed from public assets) Tj
+0 -14 Td
+ET
+endstream
+endobj
+7 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 5 0 R >> >> /Contents 6 0 R >>
+endobj
+8 0 obj
+<< /Length 538 >>
+stream
+BT
+/F1 11 Tf
+72 720 Td
+() Tj
+0 -14 Td
+(## Gaps \(Optional Future Enhancements\)) Tj
+0 -14 Td
+(- PDF parsing server-side \(currently expects parsed transactions or uploads\)) Tj
+0 -14 Td
+(- Admin analytics in Manager overview) Tj
+0 -14 Td
+(- Staff role editing UI) Tj
+0 -14 Td
+(- Audit log viewer and export reports) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(## Deliverables) Tj
+0 -14 Td
+(- Fully integrated backend + frontend flows) Tj
+0 -14 Td
+(- Documentation: user manual, QA checklist, deployment guide) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+() Tj
+0 -14 Td
+ET
+endstream
+endobj
+9 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 5 0 R >> >> /Contents 8 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Count 2 /Kids [7 0 R 9 0 R] >>
+endobj
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+xref
+0 8
+0000000000 65535 f 
+0000000009 00000 n 
+0000000079 00000 n 
+0000002693 00000 n 
+0000002819 00000 n 
+0000003408 00000 n 
+0000003534 00000 n 
+0000003597 00000 n 
+trailer
+<< /Size 8 /Root 1 0 R >>
+startxref
+3646
+%%EOF

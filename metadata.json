@@ -1,0 +1,8 @@
+{
+  "name": "LedgerSnap",
+  "short_name": "LedgerSnap",
+  "description": "Multi-tenant business ledger with immutable record keeping and automated OCR extraction.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
