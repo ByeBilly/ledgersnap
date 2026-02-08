@@ -3,6 +3,7 @@ import { env } from '../config/env';
 import db from '../db';
 import crypto from 'crypto';
 import jwt from 'jsonwebtoken';
+import type { SignOptions } from 'jsonwebtoken';
 import { authRateLimit } from '../middleware/rateLimit';
 import { issueMagicLink, hashMagicToken } from '../services/magicLink';
 
@@ -70,6 +71,10 @@ router.get('/verify', async (req, res) => {
         tokenHash
     ]);
 
+    const signOptions: SignOptions = {
+        expiresIn: env.JWT_EXPIRES_IN as SignOptions['expiresIn'],
+    };
+
     const jwtToken = jwt.sign(
         {
             userId: user.user_id,
@@ -79,7 +84,7 @@ router.get('/verify', async (req, res) => {
             email: user.email,
         },
         env.JWT_SECRET,
-        { expiresIn: env.JWT_EXPIRES_IN }
+        signOptions
     );
 
     res.json({

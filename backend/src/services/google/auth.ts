@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import { google } from 'googleapis';
+import type { GoogleAuth } from 'google-auth-library';
 import { env } from '../../config/env';
 
 function readServiceAccountJson(): string {
@@ -33,7 +34,7 @@ function parseServiceAccountCredentials(): Record<string, unknown> {
     }
 }
 
-export function createGoogleAuth(scopes: string[]): google.auth.GoogleAuth {
+export function createGoogleAuth(scopes: string[]): GoogleAuth {
     return new google.auth.GoogleAuth({
         credentials: parseServiceAccountCredentials(),
         scopes,
