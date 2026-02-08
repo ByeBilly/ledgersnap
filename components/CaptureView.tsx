@@ -3,7 +3,7 @@ import React, { useState, useRef } from 'react';
 import { User, ReceiptData, TransactionData, SubmissionStatus } from '../types';
 import { Camera, FileText, X, Check, Loader2, Sparkles, Upload, FileSpreadsheet, FileCode } from 'lucide-react';
 import { compressImage, blobToBase64 } from '../services/image';
-import { extractReceipt, mapBankData } from '../services/gemini';
+import { extractReceipt, mapBankData } from '../services/ai';
 import { storage } from '../services/storage';
 import { parseCsv, formatCsvPreview } from '../services/csv';
 

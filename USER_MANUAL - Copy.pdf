@@ -1,0 +1,147 @@
+%PDF-1.4
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+6 0 obj
+<< /Length 1852 >>
+stream
+BT
+/F1 11 Tf
+72 720 Td
+(# LedgerSnap User Manual) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(## 1. Getting Started \(Admin\)) Tj
+0 -14 Td
+(1. Open the app.) Tj
+0 -14 Td
+(2. Tap **Create Business Workspace**.) Tj
+0 -14 Td
+(3. Enter business name, admin name, and admin email.) Tj
+0 -14 Td
+(4. Tap **Finish & Provision**.) Tj
+0 -14 Td
+(5. You will be signed in automatically.) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(## 2. Sign In \(All Users\)) Tj
+0 -14 Td
+(1. Enter your work email.) Tj
+0 -14 Td
+(2. Tap **Send Magic Link**.) Tj
+0 -14 Td
+(3. Open the email and click the link to sign in.) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(## 3. Capture a Receipt) Tj
+0 -14 Td
+(1. Tap **Snap**.) Tj
+0 -14 Td
+(2. Take a photo or upload an image.) Tj
+0 -14 Td
+(3. Review extracted fields.) Tj
+0 -14 Td
+(4. Tap **Record to Ledger**.) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(## 4. Upload a Bank Statement) Tj
+0 -14 Td
+(1. Tap **Bank CSV** or **PDF Statement**.) Tj
+0 -14 Td
+(2. CSV will auto-map transactions.) Tj
+0 -14 Td
+(3. Tap **Record to Ledger** to queue.) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(## 5. Outbox) Tj
+0 -14 Td
+(- **Queued** items will sync automatically when online.) Tj
+0 -14 Td
+(- **Failed** items can be retried by staying online.) Tj
+0 -14 Td
+(- Tap the trash icon to remove an item.) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(## 6. History) Tj
+0 -14 Td
+(1. Tap **History**.) Tj
+0 -14 Td
+(2. View submissions and their status.) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(## 7. Manager: Invite Staff) Tj
+0 -14 Td
+(1. Tap **Manager**.) Tj
+0 -14 Td
+(2. Open the **Team** tab.) Tj
+0 -14 Td
+(3. Enter name and email, select role.) Tj
+0 -14 Td
+(4. Tap **Send Invite**.) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(## 8. Manager: Enable/Disable Users) Tj
+0 -14 Td
+(1. In **Team** list, click **Disable** or **Enable**.) Tj
+0 -14 Td
+(2. Users disabled cannot log in.) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(## 9. Sign Out) Tj
+0 -14 Td
+(1. Tap **Account**.) Tj
+0 -14 Td
+ET
+endstream
+endobj
+7 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 5 0 R >> >> /Contents 6 0 R >>
+endobj
+8 0 obj
+<< /Length 98 >>
+stream
+BT
+/F1 11 Tf
+72 720 Td
+(2. Tap **Log Out Securely**.) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+() Tj
+0 -14 Td
+ET
+endstream
+endobj
+9 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 5 0 R >> >> /Contents 8 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Count 2 /Kids [7 0 R 9 0 R] >>
+endobj
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+xref
+0 8
+0000000000 65535 f 
+0000000009 00000 n 
+0000000079 00000 n 
+0000001983 00000 n 
+0000002109 00000 n 
+0000002257 00000 n 
+0000002383 00000 n 
+0000002446 00000 n 
+trailer
+<< /Size 8 /Root 1 0 R >>
+startxref
+2495
+%%EOF

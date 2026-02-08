@@ -15,6 +15,7 @@ const envSchema = z.object({
     // Google
     GOOGLE_SERVICE_ACCOUNT_JSON: z.string().describe("Base64 or Raw JSON"),
     LEDGERSNAP_SHARED_DRIVE_ID: z.string(),
+    GEMINI_API_KEY: z.string(),
 
     // Database
     DB_URL: z.string().optional(), // Used if remote

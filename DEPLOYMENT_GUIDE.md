@@ -17,7 +17,6 @@
 ## Frontend
 1. Set environment variables:
    - `VITE_API_URL`
-   - `GEMINI_API_KEY`
 2. Install dependencies: `npm install`
 3. Build: `npm run build`
 4. Deploy `dist/` to static host.

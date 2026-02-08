@@ -27,3 +27,12 @@ dist-ssr
 backend/.env
 backend/.secrets/
 public/ledgersnap-backend-*.json
+.env
+.env.local
+backend/.env
+# Local SQLite database artifacts
+backend/*.db
+backend/*.db-*
+
+
+

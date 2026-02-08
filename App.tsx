@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useCallback } from 'react';
 import { User, UserRole, Submission, SubmissionStatus, TransactionData } from './types';
 import { storage } from './services/storage';
@@ -72,11 +71,11 @@ const App: React.FC = () => {
   const syncOutbox = useCallback(async () => {
     if (isSyncing || !isOnline || !user || !getAuthToken()) return;
     const outbox = await storage.getOutbox();
-    const pending = outbox.filter(i => 
-      i.status === SubmissionStatus.QUEUED || 
+    const pending = outbox.filter(i =>
+      i.status === SubmissionStatus.QUEUED ||
       i.status === SubmissionStatus.FAILED
     );
-    
+
     if (pending.length === 0) return;
 
     setIsSyncing(true);
@@ -88,17 +87,17 @@ const App: React.FC = () => {
         const payload =
           item.type === 'RECEIPT'
             ? {
-                imageBase64: fileBase64,
-                merchant: (item.data as any).merchant,
-                total: (item.data as any).total,
-                date: (item.data as any).receipt_date,
-              }
+              imageBase64: fileBase64,
+              merchant: (item.data as any).merchant,
+              total: (item.data as any).total,
+              date: (item.data as any).receipt_date,
+            }
             : {
-                fileBase64,
-                mimeType: item.mime_type,
-                statementDate: new Date().toISOString().slice(0, 10),
-                transactions: item.data as TransactionData[],
-              };
+              fileBase64,
+              mimeType: item.mime_type,
+              statementDate: new Date().toISOString().slice(0, 10),
+              transactions: item.data as TransactionData[],
+            };
 
         const response = await submitToQueue({
           type: submissionType,
@@ -137,18 +136,7 @@ const App: React.FC = () => {
     if (isOnline) syncOutbox();
   }, [isOnline, syncOutbox]);
 
-  useEffect(() => {
-    if (activeTab === 'submissions') {
-      refreshSubmissions();
-    }
-  }, [activeTab, refreshSubmissions]);
-
-  useEffect(() => {
-    if (user && isOnline) {
-      refreshSubmissions();
-    }
-  }, [user, isOnline, refreshSubmissions]);
-
+  // ✅ FIX: define refreshSubmissions BEFORE any useEffect that references it
   const refreshSubmissions = useCallback(async () => {
     if (!user || !getAuthToken()) return;
     try {
@@ -172,7 +160,7 @@ const App: React.FC = () => {
           submitted_at_utc: row.created_at,
           type: row.type === 'receipt' ? 'RECEIPT' : 'STATEMENT',
           status,
-            data
+          data
         };
       });
       await storage.cacheSubmissions(mapped);
@@ -180,6 +168,18 @@ const App: React.FC = () => {
       // Silent refresh
     }
   }, [user]);
+
+  useEffect(() => {
+    if (activeTab === 'submissions') {
+      refreshSubmissions();
+    }
+  }, [activeTab, refreshSubmissions]);
+
+  useEffect(() => {
+    if (user && isOnline) {
+      refreshSubmissions();
+    }
+  }, [user, isOnline, refreshSubmissions]);
 
   const handleOnboarded = (newUser: User, token?: string) => {
     setUser(newUser);
@@ -244,7 +244,7 @@ const App: React.FC = () => {
         <p className="text-slate-500 text-center mb-10 font-medium leading-relaxed max-w-[260px]">
           The zero-config immutable ledger for your business.
         </p>
-        
+
         <div className="w-full max-w-sm space-y-4">
           <div className="space-y-2">
             <input
@@ -264,14 +264,14 @@ const App: React.FC = () => {
           </div>
           {loginStatus && <p className="text-xs text-emerald-600 font-bold">{loginStatus}</p>}
           {loginError && <p className="text-xs text-rose-600 font-bold">{loginError}</p>}
-          
+
           <div className="relative py-4 flex items-center">
             <div className="flex-grow border-t border-slate-100"></div>
             <span className="flex-shrink mx-4 text-xs font-bold text-slate-300 uppercase tracking-widest">New Company?</span>
             <div className="flex-grow border-t border-slate-100"></div>
           </div>
-          
-          <button 
+
+          <button
             onClick={() => setActiveTab('onboarding')}
             className="w-full bg-white border-2 border-slate-100 text-slate-800 font-bold py-5 rounded-3xl hover:bg-slate-50 transition-all flex items-center justify-center gap-3"
           >
@@ -288,9 +288,11 @@ const App: React.FC = () => {
       <header className="sticky top-0 z-30 bg-white/80 backdrop-blur-md px-6 py-5 flex items-center justify-between">
         <div className="flex flex-col">
           <h1 className="font-black text-xl tracking-tight text-slate-900 leading-none">LedgerSnap</h1>
-          <span className="text-[9px] font-bold text-slate-400 uppercase tracking-widest mt-1.5">{user.business_code} • {user.role}</span>
+          <span className="text-[9px] font-bold text-slate-400 uppercase tracking-widest mt-1.5">
+            {user.business_code} • {user.role}
+          </span>
         </div>
-        
+
         <div className="flex items-center gap-2">
           {!isOnline ? (
             <div className="bg-rose-50 text-rose-600 p-2 rounded-xl" title="Offline">
@@ -301,11 +303,12 @@ const App: React.FC = () => {
               <RefreshCw size={16} />
             </div>
           ) : (
-             <div className="bg-emerald-50 text-emerald-600 p-2 rounded-xl">
+            <div className="bg-emerald-50 text-emerald-600 p-2 rounded-xl">
               <Wifi size={16} />
             </div>
           )}
-          <button 
+
+          <button
             onClick={() => setActiveTab('outbox')}
             className={`relative p-2 rounded-xl transition ${activeTab === 'outbox' ? 'bg-blue-600 text-white' : 'bg-slate-100 text-slate-400'}`}
           >
@@ -342,7 +345,10 @@ const App: React.FC = () => {
 };
 
 const TabItem: React.FC<{ active: boolean, onClick: () => void, icon: React.ReactNode, label: string }> = ({ active, onClick, icon, label }) => (
-  <button onClick={onClick} className={`flex flex-col items-center justify-center w-full h-full transition-all ${active ? 'text-blue-600 scale-105' : 'text-slate-400'}`}>
+  <button
+    onClick={onClick}
+    className={`flex flex-col items-center justify-center w-full h-full transition-all ${active ? 'text-blue-600 scale-105' : 'text-slate-400'}`}
+  >
     {icon}
     <span className="text-[10px] mt-1 font-bold tracking-tight">{label}</span>
   </button>
